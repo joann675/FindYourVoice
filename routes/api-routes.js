@@ -20,7 +20,7 @@ module.exports = function (app) {
 
   });
 
-  app.get("/api/favgames/:userid", function (req, res) {
+  app.get("/api/games/:userid", function (req, res) {
     
     db.UserGameStatuses.findAll({
       include: [db.Games ],
@@ -62,7 +62,7 @@ module.exports = function (app) {
       res.json(user);
     });
 
-  });
+  }); 
 
   // POST route for saving a new game for user
   app.post("/api/games", function (req, res) {
@@ -72,7 +72,9 @@ module.exports = function (app) {
       where: {
         title: req.body.title,
         releaseDate: req.body.releaseDate
-      }
+      },
+      defaults: {platforms: req.body.platforms,
+                agerating: req.body.agerating}
     }).then(function (results) {
 
       db.UserGameStatuses.create({

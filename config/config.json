@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "Gerry0312!",
     "database": "gamecentralDev_db",
     "port": "3306",
     "host": "localhost",

@@ -2,7 +2,12 @@
 
 module.exports = function (sequelize, DataTypes) {
   var Games = sequelize.define("Games", {
-    name: DataTypes.STRING
+    title: DataTypes.STRING,
+    publisher: DataTypes.STRING,
+    developer: DataTypes.STRING,
+    platform: DataTypes.STRING,
+    releaseDate: DataTypes.DATEONLY,
+    agerating: DataTypes.INTEGER
     
   });
 

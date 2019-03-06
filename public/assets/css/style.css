@@ -4,7 +4,9 @@
 body {
   padding-top: 20px;
   padding-bottom: 20px;
-  background-image: url("purple_stars.gif");
+  background-image: url("stars2.gif");
+ /* background-size: cover;
+  background-repeat: no-repeat;*/
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */

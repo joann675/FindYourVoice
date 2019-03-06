@@ -52,8 +52,10 @@ module.exports = function (app) {
     db.Users.create({
       name: req.body.name,
       email: req.body.email,
+      password: req.body.password,
       dob: req.body.dob,
       privacySetting: req.body.privacySetting,
+      genreList: req.body.genreList,
       platform: req.body.platform
     }).then(function (user) {
       // We have access to the new user as an argument inside of the callback function
@@ -68,7 +70,8 @@ module.exports = function (app) {
     // into our table. 
     db.Games.findOrCreate({
       where: {
-        name: req.body.gameName
+        title: req.body.title,
+        releaseDate: req.body.releaseDate
       }
     }).then(function (results) {
 
@@ -92,8 +95,10 @@ module.exports = function (app) {
     db.Todo.update({
       name: req.body.name,
       email: req.body.email,
+      password: req.body.password,
       dob: req.body.dob,
       privacySetting: req.body.privacySetting,
+      genreList: req.body.genreList,
       platform: req.body.platform
     }, {
         where: {

@@ -6,6 +6,7 @@
 
 // Requiring our models
 var db = require("../models");
+var passport = require("../config/passport");
 
 // Routes =============================================================
 module.exports = function (app) {
@@ -31,6 +32,21 @@ module.exports = function (app) {
       res.json(results);
     });
   });
+
+  app.get("/api/games/:userid/:playState", function (req, res) {
+    
+    db.UserGameStatuses.findAll({
+      include: [db.Games ],
+      where: {
+        UserId: req.params.userid,
+        state: req.params.playState
+
+      }
+    }).then(function (results) {
+      res.json(results);
+    });
+  });
+
 
 
   // GET route for getting all of the users
@@ -63,6 +79,13 @@ module.exports = function (app) {
     });
 
   }); 
+
+  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
+    // So we're sending the user back the route to the members page because the redirect will happen on the front end
+    // They won't get this or even be able to access this page if they aren't authed
+    res.json("/index");
+  });
 
   // POST route for saving a new game for user
   app.post("/api/games", function (req, res) {

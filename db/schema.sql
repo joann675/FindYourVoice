@@ -1,4 +1,5 @@
 
+
 /*
 
 To run this file, we do the following in our Terminal:
@@ -14,6 +15,4 @@ To run this file, we do the following in our Terminal:
 -- Create the database seqBurgers_db and specified it for use.
 DROP DATABASE IF EXISTS `gamecentralDev_db`;
 CREATE DATABASE `gamecentralDev_db`;
-=======
-
 

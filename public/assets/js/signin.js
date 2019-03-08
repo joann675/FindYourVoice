@@ -11,6 +11,8 @@ $(document).ready(function () {
   var genreInput = $("select#genreList");
   var platformInput = $("select#platformList");
 
+
+
   signinForm.on("submit", function (event) {
     event.preventDefault();
     var userData = {
@@ -33,7 +35,6 @@ $(document).ready(function () {
     platformInput.val("");
   });
 
-
   // Send the POST request.
   function signInUser(name, email, dob, password, privacySetting, genreList, platform) {
     $.post("/api/users", {
@@ -54,6 +55,8 @@ $(document).ready(function () {
     $("#alert").fadeIn(500);
 
   }
+
+
 
 
 });

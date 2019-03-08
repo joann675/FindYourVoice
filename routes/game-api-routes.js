@@ -1,3 +1,4 @@
+var searched = document.getElementById("searched").value;
 axios({
     url: "https://api-v3.igdb.com/search",
     method: 'POST',

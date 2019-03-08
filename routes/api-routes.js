@@ -57,7 +57,7 @@ module.exports = function (app) {
     // findAll returns all entries for a table when used with no options
     db.Users.findAll({}).then(function (users) {
       // We have access to the todos as an argument inside of the callback function
-      res.json(users);
+      res.json(main);
     });
 
   });

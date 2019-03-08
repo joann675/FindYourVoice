@@ -6,7 +6,9 @@
 
 // Requiring our models
 var db = require("../models");
+
 var passport = require("../config/passport");
+
 
 // Routes =============================================================
 module.exports = function (app) {
@@ -32,6 +34,7 @@ module.exports = function (app) {
       res.json(results);
     });
   });
+
 
   app.get("/api/games/:userid/:playState", function (req, res) {
     
@@ -86,6 +89,7 @@ module.exports = function (app) {
     // They won't get this or even be able to access this page if they aren't authed
     res.json("/index");
   });
+
 
   // POST route for saving a new game for user
   app.post("/api/games", function (req, res) {

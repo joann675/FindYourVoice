@@ -20,10 +20,11 @@ $(document).ready(function () {
 
   // Send the POST request.
   function logInUser(name, password) {
-    $.post("/api/users", {
+    $.post("/api/login", {
       username: name,
       password: password,
          }).then(function (data) {
+          localStorage.setItem("username", data.id);
           window.location.href="/main";
     }).catch(handleLoginErr);
   }

@@ -35,3 +35,13 @@ body{
   color: rgb(81, 123, 197);
   background-color: rgb(30,24,60);
 }
+
+.tabs-title>a {
+  font-size: 20px;
+}
+
+a {
+  background-color: #add6ff;
+  border: 1px solid #1e183c;
+  margin: 10px;
+}

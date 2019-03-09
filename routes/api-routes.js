@@ -24,9 +24,9 @@ module.exports = function (app) {
   });
 
   app.get("/api/games/:userid", function (req, res) {
-    
+
     db.UserGameStatuses.findAll({
-      include: [db.Games ],
+      include: [db.Games],
       where: {
         UserId: req.params.userid
       }
@@ -37,9 +37,10 @@ module.exports = function (app) {
 
 
   app.get("/api/games/:userid/:playState", function (req, res) {
-    
+    console.log("In get for games for user " + req.params.userid);
+
     db.UserGameStatuses.findAll({
-      include: [db.Games ],
+      include: [db.Games],
       where: {
         UserId: req.params.userid,
         state: req.params.playState
@@ -81,13 +82,19 @@ module.exports = function (app) {
       res.json(user);
     });
 
-  }); 
+  });
 
-  app.post("/api/login", passport.authenticate("local"), function(req, res) {
+  app.post("/api/login", passport.authenticate("local"), function (req, res) {
     // Since we're doing a POST with javascript, we can't actually redirect that post into a GET request
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
-    res.json("/index");
+    db.Users.findOne({
+      where: {
+        name: req.body.username
+      }
+    }).then(function (results) {
+      res.json(results);
+    });
   });
 
 
@@ -100,8 +107,10 @@ module.exports = function (app) {
         title: req.body.title,
         releaseDate: req.body.releaseDate
       },
-      defaults: {platforms: req.body.platforms,
-                agerating: req.body.agerating}
+      defaults: {
+        platforms: req.body.platforms,
+        agerating: req.body.agerating
+      }
     }).then(function (results) {
 
       db.UserGameStatuses.create({
@@ -121,7 +130,7 @@ module.exports = function (app) {
   app.put("/api/users", function (req, res) {
     // Update takes in two arguments, an object describing the properties we want to update,
     // and another "where" object describing the user we want to update
-    db.Todo.update({
+    db.Users.update({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
@@ -139,4 +148,25 @@ module.exports = function (app) {
       });
 
   });
+
+    // PUT route for updating user. We can get the updated user data from req.body
+    app.put("/api/changeGameState", function (req, res) {
+      console.log("In put route")
+      // Update takes in two arguments, an object describing the properties we want to update,
+      // and another "where" object describing the user and game we want to update
+      db.UserGameStatuses.update({
+        rating: req.body.rating,
+        state: req.body.state,
+        
+      }, {
+          where: {
+            GameId: req.body.gid,
+            UserId: req.body.uid
+          }
+        })
+        .then(function (data) {
+          res.json(data);
+        });
+  
+    });
 }

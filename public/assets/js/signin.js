@@ -57,22 +57,13 @@ $(document).ready(function () {
       genreList: genreList,
       platform: platform
     }).then(function (data) {
-      localStorage.setItem("username", data.id);
-      window.location.href="/main";
-    }).catch(handleLoginErr);
+      localStorage.setItem("userId", data.id);
+      localStorage.setItem("platform", data.platform);
+      window.location.href = "/main";
+    })
+      .fail(function () {
+        alert("error User name already exists");
+      })
+
   }
-
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
-
-  }
-
-
-
-
 });
-
-
-
-

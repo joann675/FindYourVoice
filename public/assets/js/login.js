@@ -5,14 +5,14 @@ $(document).ready(function () {
   var loginForm = $("form.login");
   var nameInput = $("input#name");
   var passwordInput = $("input#password-input");
-  
+
 
   loginForm.on("submit", function (event) {
     event.preventDefault();
     var userData = {
       username: nameInput.val().trim(),
       password: passwordInput.val().trim(),
-        };
+    };
     logInUser(userData.username, userData.password);
     nameInput.val("");
     passwordInput.val("");
@@ -23,17 +23,15 @@ $(document).ready(function () {
     $.post("/api/login", {
       username: name,
       password: password,
-         }).then(function (data) {
-          localStorage.setItem("username", data.id);
-          window.location.href="/main";
-    }).catch(handleLoginErr);
+    }).then(function (data) {
+      localStorage.setItem("userId", data.id);
+      localStorage.setItem("platform", data.platform);
+      window.location.href = "/main";
+    }).fail(function () {
+      alert("error invalid user name or password");
+    })
   }
 
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
-
-  }
 });
 
 

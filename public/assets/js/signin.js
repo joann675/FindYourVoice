@@ -11,7 +11,18 @@ $(document).ready(function () {
   var genreInput = $("select#genreList");
   var platformInput = $("select#platformList");
 
+  var expanded = false;
 
+  function showCheckboxes() {
+    var checkboxes = document.getElementById("checkboxes");
+    if (!expanded) {
+      checkboxes.style.display = "block";
+      expanded = true;
+    } else {
+      checkboxes.style.display = "none";
+      expanded = false;
+    }
+  }
 
   signinForm.on("submit", function (event) {
     event.preventDefault();
@@ -46,6 +57,7 @@ $(document).ready(function () {
       genreList: genreList,
       platform: platform
     }).then(function (data) {
+      localStorage.setItem("username", data.id);
       window.location.href="/main";
     }).catch(handleLoginErr);
   }

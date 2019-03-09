@@ -16,8 +16,8 @@ $(document).ready(function(){
    $("#panel2 ol").empty();
    for (var i = 0; i < data.length; i++) {
      console.log(data[i].Game.title);
-
-     $("#panel2 ol").append('<li>' + data[i].Game.title + '</li>');
+     $("#panel2 ol").append('<li>' + data[i].Game.title +"<button class='finishgame' id='finishbtn' data-id='this.id' data-newpastPlayed=pastPlayed >Gamefinished</button>" + '</li>' );
+     //$("#panel2 ol").append('<li>' + data[i].Game.title + '</li>');
    }
  });
 

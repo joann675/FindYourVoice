@@ -8,6 +8,9 @@ var PORT = process.env.PORT || 3000;
 
 var app = express();
 
+// Read and set environment variables
+require("dotenv").config();
+
 var db = require("./models");
 
 // Serve static content for the app from the "public" directory in the application directory.

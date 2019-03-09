@@ -24,7 +24,7 @@ $(document).ready(function () {
       username: name,
       password: password,
          }).then(function (data) {
-     res.redirect(307, "/api/main");
+          window.location.href="/main";
     }).catch(handleLoginErr);
   }
 
@@ -33,10 +33,6 @@ $(document).ready(function () {
     $("#alert").fadeIn(500);
 
   }
-
-
-
-
 });
 
 

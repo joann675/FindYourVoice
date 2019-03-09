@@ -46,7 +46,7 @@ $(document).ready(function () {
       genreList: genreList,
       platform: platform
     }).then(function (data) {
-      window.location.replace(data);
+      window.location.href="/main";
     }).catch(handleLoginErr);
   }
 

@@ -37,6 +37,7 @@ module.exports = function (app) {
 
 
   app.get("/api/games/:userid/:playState", function (req, res) {
+    console.log("In get for games for user " + req.params.userid);
 
     db.UserGameStatuses.findAll({
       include: [db.Games],
@@ -129,7 +130,7 @@ module.exports = function (app) {
   app.put("/api/users", function (req, res) {
     // Update takes in two arguments, an object describing the properties we want to update,
     // and another "where" object describing the user we want to update
-    db.Todo.update({
+    db.Users.update({
       name: req.body.name,
       email: req.body.email,
       password: req.body.password,
@@ -147,4 +148,25 @@ module.exports = function (app) {
       });
 
   });
+
+    // PUT route for updating user. We can get the updated user data from req.body
+    app.put("/api/changeGameState", function (req, res) {
+      console.log("In put route")
+      // Update takes in two arguments, an object describing the properties we want to update,
+      // and another "where" object describing the user and game we want to update
+      db.UserGameStatuses.update({
+        rating: req.body.rating,
+        state: req.body.state,
+        
+      }, {
+          where: {
+            GameId: req.body.gid,
+            UserId: req.body.uid
+          }
+        })
+        .then(function (data) {
+          res.json(data);
+        });
+  
+    });
 }

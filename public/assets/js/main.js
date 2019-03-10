@@ -7,7 +7,7 @@ $(document).ready(function(){
    for (var i = 0; i < data.length; i++) {
      console.log(data[i].Game.title);
 
-     $("#panel1 ol").append('<li>' + data[i].Game.title + '</li>');
+    $("#panel1 ol").append('<li>' + data[i].Game.title + ' ' + printStars(data[i].rating) + '</li>');
    }
  });
 
@@ -17,7 +17,6 @@ $(document).ready(function(){
    for (var i = 0; i < data.length; i++) {
      console.log(data[i].Game.title);
      $("#panel2 ol").append('<li>' + data[i].Game.title +"<button class='finishgame' id='finishbtn' data-id='this.id' data-newpastPlayed=pastPlayed >Gamefinished</button>" + '</li>' );
-     //$("#panel2 ol").append('<li>' + data[i].Game.title + '</li>');
    }
  });
 
@@ -31,7 +30,7 @@ $(document).ready(function(){
    }
  });
 
-    $("#serchbtn").on("click", function(event){
+    $("#sub-button").on("click", function(event){
       console.log("I am clicked");
       event.preventDefault()
       let search = $("#searched").val().trim()
@@ -70,3 +69,14 @@ $(document).ready(function(){
         console.log(response);
     });
    })
+
+   function printStars(numStars) {
+    var string = "";
+    if (numStars === null)
+     return string;
+    for (var i = 0; i < numStars; i++) {
+      string = string + "* ";
+    }
+    return string;
+
+  }

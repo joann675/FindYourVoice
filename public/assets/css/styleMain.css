@@ -45,3 +45,14 @@ a {
   border: 1px solid #1e183c;
   margin: 10px;
 }
+
+.statusChangeButton {
+  background-color: #add6ff; /* Green */
+  border: none;
+  color: #1e183c;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}

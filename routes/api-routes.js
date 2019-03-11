@@ -185,7 +185,7 @@ module.exports = function (app) {
 
 
   app.get("/api/igdbgames/:gameName", function (req, res) {
-    dataString = "fields name,url,storyline,summary,first_release_date;";
+    dataString = "search \""+req.params.gameName+"\"; fields name,url,storyline,summary,first_release_date;";
     console.log("Data string for igdb games - " + dataString);
     axios({
       url: "https://api-v3.igdb.com/games/",

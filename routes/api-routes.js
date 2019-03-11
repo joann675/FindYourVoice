@@ -8,6 +8,7 @@
 var db = require("../models");
 
 var passport = require("../config/passport");
+var axios = require("axios");
 
 
 // Routes =============================================================
@@ -121,7 +122,7 @@ module.exports = function (app) {
       },
       defaults: {
         platforms: req.body.platforms
- 
+
       }
     }).then(function (results) {
 
@@ -180,5 +181,55 @@ module.exports = function (app) {
         res.json(data);
       });
 
+  });
+
+
+  app.get("/api/igdbgames/:gameName", function (req, res) {
+    dataString = "fields name,url,storyline,summary,first_release_date;";
+    console.log("Data string for igdb games - " + dataString);
+    axios({
+      url: "https://api-v3.igdb.com/games/",
+      method: 'POST',
+      headers: {
+
+        'user-key': 'aaf0f6e96defcd0e3a5c2cc67b4612fa',
+        'Accept': 'application/json'
+
+      },
+      search: req.params.gameName,
+      data: dataString
+    })
+      .then(response => {
+        console.log(response.data);
+        res.json(response.data);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(404).end();
+      });
+  });
+
+  app.get("/api/igdbart/:gameid", function (req, res) {
+    dataString = "fields url; where id = "+req.params.gameid+";"
+    console.log("Data string for igdb artwork - " + dataString);
+    axios({
+      url: "https://api-v3.igdb.com/artworks",
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'user-key': 'aaf0f6e96defcd0e3a5c2cc67b4612fa'
+      },
+      data: dataString
+
+
+    })
+      .then(response => {
+        console.log(response.data);
+        res.json(response.data);
+      })
+      .catch(err => {
+        console.error(err);
+        res.status(404).end();
+      });
   });
 }

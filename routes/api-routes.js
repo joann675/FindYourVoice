@@ -11,6 +11,7 @@ var passport = require("../config/passport");
 var axios = require("axios");
 
 
+
 // Routes =============================================================
 module.exports = function (app) {
 
@@ -192,7 +193,7 @@ module.exports = function (app) {
       method: 'POST',
       headers: {
 
-        'user-key': 'aaf0f6e96defcd0e3a5c2cc67b4612fa',
+        'user-key': process.env.IGDB_ID,
         'Accept': 'application/json'
 
       },
@@ -217,7 +218,7 @@ module.exports = function (app) {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'user-key': 'aaf0f6e96defcd0e3a5c2cc67b4612fa'
+        'user-key': process.env.IGDB_ID
       },
       data: dataString
 

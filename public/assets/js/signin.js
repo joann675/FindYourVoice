@@ -11,7 +11,18 @@ $(document).ready(function () {
   var genreInput = $("select#genreList");
   var platformInput = $("select#platformList");
 
+  var expanded = false;
 
+  function showCheckboxes() {
+    var checkboxes = document.getElementById("checkboxes");
+    if (!expanded) {
+      checkboxes.style.display = "block";
+      expanded = true;
+    } else {
+      checkboxes.style.display = "none";
+      expanded = false;
+    }
+  }
 
   signinForm.on("submit", function (event) {
     event.preventDefault();
@@ -46,21 +57,13 @@ $(document).ready(function () {
       genreList: genreList,
       platform: platform
     }).then(function (data) {
-      window.location.href="/main";
-    }).catch(handleLoginErr);
+      localStorage.setItem("userId", data.id);
+      localStorage.setItem("platform", data.platform);
+      window.location.href = "/main";
+    })
+      .fail(function () {
+        alert("error User name already exists");
+      })
+
   }
-
-  function handleLoginErr(err) {
-    $("#alert .msg").text(err.responseJSON);
-    $("#alert").fadeIn(500);
-
-  }
-
-
-
-
 });
-
-
-
-

@@ -47,10 +47,27 @@ a {
 }
 
 .statusChangeButton {
+  position: absolute;
+  left: 15%;
   background-color: #add6ff; /* Green */
   border: none;
   color: #1e183c;
-  padding: 15px 32px;
+  margin: 8px;
+  padding: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.ratingButton {
+  position: absolute;
+  left: 22%;
+  background-color: #add6ff; /* Green */
+  border: none;
+  color: #1e183c;
+  margin: 8px;
+  padding: 3px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

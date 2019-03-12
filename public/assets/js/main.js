@@ -21,6 +21,18 @@ $(document).ready(function () {
       playAgain.on("click", chgStatusToPresent);
 
       $(listItem).append(playAgain);
+      var rateMe = $("<button>");
+      rateMe.addClass("ratingButton");
+
+      rateMe.attr("gameId", data[i].Game.id);
+      
+      rateMe.text("Rate Game");
+
+      rateMe.on("click", addRating);
+
+
+      $(listItem).append(playAgain);
+      $(listItem).append(rateMe);
       $("#panel1 ol").append(listItem);
     }
   });
@@ -104,6 +116,26 @@ function printStars(numStars) {
 
 }
 
+function addRating() {
+
+  console.log("In my rating function");
+  var newGameState = {
+    gid: $(this).attr("gameId"),
+    uid: localStorage.getItem("userId"),
+    state: "pastPlayed",
+    rating: $(this).attr("rating")
+  };
+  $.ajax("/api/changeGameState", {
+    type: "PUT",
+    data: newGameState
+  }).then(
+    function () {
+      console.log("Game updated");
+
+      location.reload();
+    }
+  );
+};
 function chgStatusToPast() {
 
   console.log("In my function");

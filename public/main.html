@@ -10,6 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js" integrity="sha256-/PFxCnsMh+nTuM0k3VJCRch1gwnCfKjaP8rJNq5SoBg= sha384-9ksAFjQjZnpqt6VtpjMjlp2S0qrGbcwF/rvrLUg2vciMhwc1UJJeAAOLuJ96w+Nj sha512-UMSn6RHqqJeJcIfV1eS2tPKCjzaHkU/KqgAnQ7Nzn0mLicFxaVhm9vq7zG5+0LALt15j1ljlg8Fp9PT1VGNmDw==" crossorigin="anonymous"></script>
             <!-- Insert this within your head tag and after foundation.css -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
+<script src="package.json/ionic1-star-rating/dist/index.js"></script>
 
 <meta charset = "UTF-8">
             <link rel="stylesheet" type = "text/css" href="../public/css/style.css">
@@ -58,14 +59,15 @@
               </div>
                   
 
-         
-
+              <star-rating-comp id="'my-id'"></star-rating-comp>
+              <star-rating-comp direction="'ltr'"></star-rating-comp>
+              <star-rating-comp on-click="parentCtrl.onClick($event)"></star-rating-comp>
 
                 <script src="https://code.jquery.com/jquery.js"></script>    
                 <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.1/dist/js/foundation.min.js" integrity="sha256-WUKHnLrIrx8dew//IpSEmPN/NT3DGAEmIePQYIEJLLs= sha384-53StQWuVbn6figscdDC3xV00aYCPEz3srBdV/QGSXw3f19og3Tq2wTRe0vJqRTEO sha512-X9O+2f1ty1rzBJOC8AXBnuNUdyJg0m8xMKmbt9I3Vu/UOWmSg5zG+dtnje4wAZrKtkopz/PEDClHZ1LXx5IeOw==" crossorigin="anonymous"></script>
                 <script src="assets/js/main.js"></script>
                 
-                    
+                
                     <script>$(document).foundation();</script>
 
         

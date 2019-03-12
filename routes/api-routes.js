@@ -9,6 +9,7 @@ var db = require("../models");
 
 var passport = require("../config/passport");
 var axios = require("axios");
+var ionic1 = require("ionic1-star-rating");
 
 
 // Routes =============================================================

@@ -60,14 +60,38 @@ a {
   font-size: 16px;
 }
 
-.ratingButton {
+.rateSelect {
   position: absolute;
   left: 22%;
+  width: 100px;
+  height: 22px;
   background-color: #add6ff; /* Green */
   border: none;
   color: #1e183c;
   margin: 8px;
   padding: 3px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+ }
+
+#search-view {
+  background-color: rgb(30,24,60);
+  color: rgb(81, 123, 197);
+  border-bottom-color: #add6ff;
+  border-bottom-width: 5px;
+  padding-bottom: 10px;
+}
+
+.playLaterButton {
+  position: absolute;
+  right: 40%;
+  background-color: #add6ff; /* Green */
+  border-color: black;
+  color: #1e183c;
+  margin: 8px;
+  padding: 2px;
   text-align: center;
   text-decoration: none;
   display: inline-block;

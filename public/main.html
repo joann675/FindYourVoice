@@ -9,7 +9,8 @@
 <!-- Compressed JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.5.3/dist/js/foundation.min.js" integrity="sha256-/PFxCnsMh+nTuM0k3VJCRch1gwnCfKjaP8rJNq5SoBg= sha384-9ksAFjQjZnpqt6VtpjMjlp2S0qrGbcwF/rvrLUg2vciMhwc1UJJeAAOLuJ96w+Nj sha512-UMSn6RHqqJeJcIfV1eS2tPKCjzaHkU/KqgAnQ7Nzn0mLicFxaVhm9vq7zG5+0LALt15j1ljlg8Fp9PT1VGNmDw==" crossorigin="anonymous"></script>
             <!-- Insert this within your head tag and after foundation.css -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
+            <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/motion-ui@1.2.3/dist/motion-ui.min.css" />
 
 <meta charset = "UTF-8">
             <link rel="stylesheet" type = "text/css" href="assets/css/styleMain.css">
@@ -28,14 +29,14 @@
               </div>
               </div>
               <br>
-              
+              <div id="search-view"></div>
 
               <div class="row">
                 <div class="coloums">
                   <ol class="tabs" data-tabs id="state-tabs">
-                    <li class="tabs-title"><a href="#panel1" aria-selected="true">Games Played</a></li>
-                    <li class="tabs-title"><a href="#panel2">Games Playing</a></li>
-                    <li class="tabs-title"><a href="#panel3">Games to Play</a></li>
+                    <li class="tabs-title" id="1panel"><a href="#panel1" aria-selected="true">Games Played</a></li>
+                    <li class="tabs-title" id="2panel"><a href="#panel2">Games Playing</a></li>
+                    <li class="tabs-title" id="3panel"><a href="#panel3">Games to Play</a></li>
                   </ol>
                   <div class="tabs-content" data-tabs-content="state-tabs" data-animate="fade-in fade-out">
                     <div class="tabs-panel" id="panel1">

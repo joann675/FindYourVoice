@@ -222,7 +222,6 @@ module.exports = function (app) {
       },
       data: dataString
 
-
     })
       .then(response => {
         console.log(response.data);

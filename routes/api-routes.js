@@ -217,7 +217,7 @@ module.exports = function (app) {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'user-key': 'process.env.IGDB_ID'
+        'user-key': process.env.IGDB_ID
       },
       data: dataString
 

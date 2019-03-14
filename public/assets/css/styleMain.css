@@ -1,6 +1,6 @@
 body{
  
-  background-image:url("kanzuki.jpg");
+  background-image:url("kanzuki_estate.png");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -48,7 +48,7 @@ a {
 
 .statusChangeButton {
   position: absolute;
-  left: 15%;
+  left: 25%;
   background-color: #add6ff; /* Green */
   border: none;
   color: #1e183c;
@@ -62,7 +62,7 @@ a {
 
 .rateSelect {
   position: absolute;
-  left: 22%;
+  left: 32%;
   width: 100px;
   height: 22px;
   background-color: #add6ff; /* Green */
